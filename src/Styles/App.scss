@@ -1,0 +1,89 @@
+$baby-blue: #61dafb;
+
+body {
+    text-align: center;
+    background-color: #080808;
+    height: 100vh;
+    color: white;
+}
+
+.App-header {
+    width: 600px;
+    margin: 30px auto;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+a {
+    color: #61dafb;
+}
+
+hr {
+    border-color: $baby-blue;
+}
+
+#resolution {
+    display: block;
+    margin: auto;
+    text-align: center;
+
+    font-size: 1.2rem;
+
+    input {
+        width: 60px;
+        text-align: center;
+        background-color: darken(#282c34, 10%);
+        color: white;
+        border: 1px solid white;
+        margin: 0px;
+        padding: 3px;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#world-grid {
+    border-top: 3px solid palegreen;
+    border-bottom: 3px solid palegreen;
+    padding: 15px;
+    margin: 15px;
+
+    .world-grid-row{
+        display: block;
+
+
+        .world-grid-cell {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid black;
+            background-color: #282c34;;
+            text-align: center;
+            line-height: 50px;
+            transition: background-color 0.2s ease;
+
+            &.selected {
+                background-color: palegreen;
+                transition: background-color 0.2s ease;
+            }
+        }
+    }
+}
+
+#copy-world {
+    background-color: $baby-blue;
+    border: 1px solid white;
+    color: black;
+    padding:  10px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+
+    &:hover {
+        background-color: darken($baby-blue, 20%);
+    }
+}
