@@ -50,10 +50,11 @@ input[type=number]::-webkit-outer-spin-button {
       background-color: #282c34;
       text-align: center;
       line-height: 50px;
-      transition: background-color 0.2s ease; }
+      transition: background-color 1s ease;
+      cursor: pointer; }
       #world-grid .world-grid-row .world-grid-cell.selected {
         background-color: palegreen;
-        transition: background-color 0.2s ease; }
+        transition: background-color 1s ease; }
 
 #copy-world {
   background-color: #61dafb;
@@ -62,6 +63,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 10px 20px;
   margin-bottom: 20px;
   border-radius: 10px;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
   #copy-world:hover {
     background-color: #06bef0; }
