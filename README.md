@@ -2,7 +2,7 @@
 This is an incredibly simple and fast way to quickly create greybox levels in Unity3D.  The app consists of a simple web app where you can mock up and export level designs, and a Unity script to turn those designs into 3D levels.
 
 ### Usage
-Visit the web app and design the layout of your level. Click "Download world" to download the layout in JSON format. 
+Visit the web app and design the layout of your level. Click "Download world" to download the layout in JSON format.   
 You can find the web app hosted free here: https://confident-kilby-476aed.netlify.com/
 
 ![Editing level](https://i.imgur.com/hbVGmCD.gif)
