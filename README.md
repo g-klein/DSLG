@@ -11,3 +11,10 @@ In unity, import the `.unitypackage` included in this repo. Add the DSLG prefab 
 Paste the contents of the JSON file into the JSON String field of the DSLG prefab, Then click the `Generate` button.
 
 ![Generating level](https://i.imgur.com/0JtLXTq.gif)
+
+Finally, customize the look of your level by using your own floor / wall prefabs.
+
+![layout](https://i.imgur.com/vOb68e1.png)
+![layout](https://i.imgur.com/BKRWlHs.png)
+![layout](https://i.imgur.com/QbxRLhE.png)
+![layout](https://i.imgur.com/swjfoIJ.png)
