@@ -3,9 +3,9 @@ This is an incredibly simple and fast way to quickly create greybox levels in Un
 
 ### Usage
 Visit the web app and design the layout of your level. Click "Download world" to download the layout in JSON format. 
+You can find the web app hosted free here: https://confident-kilby-476aed.netlify.com/
 
 ![Editing level](https://i.imgur.com/hbVGmCD.gif)
-
 
 In unity, import the `.unitypackage` included in this repo. Add the DSLG prefab to your scene.
 Paste the contents of the JSON file into the JSON String field of the DSLG prefab, Then click the `Generate` button.
