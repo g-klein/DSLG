@@ -1,20 +1,49 @@
 import React from 'react';
 import { WorldGrid } from './WorldGrid/WorldGrid';
+import { LayerSelector } from './LayerSelector';
+import { cellColors } from '../Constants/cellColors';
 
 export class WorldEditor extends React.Component{
+    defaultGridCell = {
+        layer: -1
+    }
+
     constructor(){
         super();
+        this.setLayer = this.setLayer.bind(this);
+        this.escFunction = this.escFunction.bind(this);
+
         this.state = {
             resolution: 2,
             grid: [
-                [false, false],
-                [false, false]
-            ]
+                [this.defaultGridCell, this.defaultGridCell],
+                [this.defaultGridCell, this.defaultGridCell]
+            ],
+            layer: 0
         };
     }
 
     componentDidMount(){
         this.updateGridResolution(this.state.resolution);
+        document.addEventListener("keydown", this.escFunction, false);
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.escFunction, false);
+    }
+
+    escFunction(event){
+        var keyString = String.fromCharCode(event.keyCode);
+        var keyInt = parseInt(keyString);
+        if(Number.isInteger(keyInt)){
+            keyInt--;
+            if(!!cellColors[keyInt])
+                this.setState({layer: keyInt});
+        }
+    }
+
+    setLayer(layer){
+        this.setState({layer});
     }
 
     updateGridResolution = () => {
@@ -28,7 +57,7 @@ export class WorldEditor extends React.Component{
 
                 for(var j = 0; j < resolution; j++){
                     if(j >= grid[i].length){
-                        grid[i].push(false);
+                        grid[i].push(this.defaultGridCell);
                     }
                 }
             }
@@ -51,7 +80,14 @@ export class WorldEditor extends React.Component{
 
     handleCellClick = (row, col) => {
         let grid = this.state.grid.slice();
-        grid[row][col] = !grid[row][col];
+        let currentLayer = grid[row][col].layer;
+        if(currentLayer == this.defaultGridCell.layer){
+            grid[row][col] = {
+                layer: this.state.layer
+            };
+        } else {
+            grid[row][col] = this.defaultGridCell;
+        }
 
         this.setState({grid});
     }
@@ -90,6 +126,7 @@ export class WorldEditor extends React.Component{
             <div id="resolution">
                 Resolution: <input type="number" value={this.state.resolution} onChange={this.handleResolutionChange} onBlur={this.updateGridResolution}></input>
             </div>
+            <LayerSelector currentLayer={this.state.layer} setLayer={this.setLayer} />
             <WorldGrid grid={this.state.grid} handleCellClick={this.handleCellClick} />
             <button id="copy-world" onClick={() => {this.download("world.json", "json")}}>Download world.</button>
         </div>
